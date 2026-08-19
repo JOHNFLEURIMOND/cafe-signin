@@ -1,6 +1,9 @@
-// config/database.js
+const mongoUri = process.env.MONGODB_URI;
+
+if (!mongoUri) {
+  throw new Error('MONGODB_URI environment variable is required');
+}
+
 module.exports = {
-
-  'url': 'REMOVED_LEGACY_MONGODB_URI' // looks like REMOVED_LEGACY_MONGODB_URI
-
+  url: mongoUri
 };
